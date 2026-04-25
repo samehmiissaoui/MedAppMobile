@@ -1,4 +1,6 @@
 // screens/HomeScreen.js
+// Patient home screen - dashboard with quick actions, stats, and upcoming appointments
+
 import React from 'react';
 import {
     Text,
@@ -11,13 +13,15 @@ import { Colors } from '../constants/colors';
 import { userData, userStats, upcomingAppointments } from '../data/mocData';
 import AppointmentCard from '../components/AppointmentCard';
 
-// ═══════════ COMPOSANTS LOCAUX ═══════════
+// ═══════════════════════════════════════════════════════
+// LOCAL COMPONENTS
+// ═══════════════════════════════════════════════════════
 
 function QuickAction({ emoji, label }) {
     return (
         <TouchableOpacity style={styles.quickAction}>
             <View style={styles.quickActionIcon}>
-                <Text style={styles.emoji24}>{emoji}</Text>
+                <Text style={styles.emojiLarge}>{emoji}</Text>
             </View>
             <Text style={styles.quickActionLabel}>{label}</Text>
         </TouchableOpacity>
@@ -28,7 +32,7 @@ function StatCard({ emoji, value, label }) {
     return (
         <View style={styles.statCard}>
             <View style={styles.statIcon}>
-                <Text style={styles.emoji24}>{emoji}</Text>
+                <Text style={styles.emojiLarge}>{emoji}</Text>
             </View>
             <Text style={styles.statValue}>{value}</Text>
             <Text style={styles.statLabel}>{label}</Text>
@@ -48,7 +52,9 @@ function AlertBanner({ icon, title, message }) {
     );
 }
 
-// ═══════════ ÉCRAN PRINCIPAL ═══════════
+// ═══════════════════════════════════════════════════════
+// MAIN SCREEN
+// ═══════════════════════════════════════════════════════
 
 export default function HomeScreen() {
     return (
@@ -62,13 +68,13 @@ export default function HomeScreen() {
                     </View>
 
                     <TouchableOpacity style={styles.notifButton}>
-                        <Text style={styles.emoji20}>🔔</Text>
+                        <Text style={styles.emojiMedium}>🔔</Text>
                         <View style={styles.notifDot} />
                     </TouchableOpacity>
                 </View>
             </View>
 
-            {/* CONTENU SCROLLABLE */}
+            {/* SCROLLABLE CONTENT */}
             <ScrollView
                 style={styles.scroll}
                 contentContainerStyle={styles.scrollContent}
@@ -76,7 +82,7 @@ export default function HomeScreen() {
             >
                 {/* SEARCH BAR */}
                 <View style={styles.searchBar}>
-                    <Text style={styles.emoji20}>🔍</Text>
+                    <Text style={styles.emojiMedium}>🔍</Text>
                     <Text style={styles.searchPlaceholder}>Rechercher un médecin...</Text>
                 </View>
 
@@ -89,7 +95,7 @@ export default function HomeScreen() {
                 </View>
 
                 {/* STATS GRID */}
-                <View style={[styles.row, styles.statsGrid]}>
+                <View style={styles.row}>
                     <StatCard
                         emoji="📅"
                         value={userStats.upcomingCount}
@@ -117,7 +123,7 @@ export default function HomeScreen() {
                     </TouchableOpacity>
                 </View>
 
-                {/* LISTE DES 2 PROCHAINS RDV */}
+                {/* APPOINTMENTS LIST (next 2) */}
                 {upcomingAppointments.slice(0, 2).map((apt) => (
                     <AppointmentCard key={apt.id} appointment={apt} />
                 ))}
@@ -126,7 +132,9 @@ export default function HomeScreen() {
     );
 }
 
-// ═══════════ STYLES ═══════════
+// ═══════════════════════════════════════════════════════
+// STYLES
+// ═══════════════════════════════════════════════════════
 
 const styles = StyleSheet.create({
     // Layout
@@ -244,10 +252,7 @@ const styles = StyleSheet.create({
         color: Colors.textMuted,
     },
 
-    // Stats
-    statsGrid: {
-        // Hérite de "row"
-    },
+    // Stat Card
     statCard: {
         backgroundColor: Colors.white,
         borderRadius: 16,
@@ -281,7 +286,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
 
-    // Alert banner
+    // Alert Banner
     alertBanner: {
         backgroundColor: Colors.warningBg,
         borderRadius: 16,
@@ -327,7 +332,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
 
-    // Emojis (réutilisés)
-    emoji20: { fontSize: 20 },
-    emoji24: { fontSize: 24 },
+    // Reused emoji sizes
+    emojiMedium: { fontSize: 20 },
+    emojiLarge: { fontSize: 24 },
 });
