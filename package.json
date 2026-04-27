@@ -9,6 +9,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
+    "lint:fix": "expo lint --fix",
+    "format": "npx prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format:check": "npx prettier --check \"**/*.{js,jsx,json,md}\"",
     "prepare": "husky"
   },
   "dependencies": {
