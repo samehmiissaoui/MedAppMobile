@@ -1,50 +1,33 @@
-# Welcome to your Expo app 👋
+# MedAppMobile
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> Mobile application for medical appointments booking. Built with React Native and Expo.
 
-## Get started
+[![CI](https://github.com/samehmiissaoui/MedAppMobile/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/samehmiissaoui/MedAppMobile/actions/workflows/ci.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=samehmiissaoui_MedAppMobile&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=samehmiissaoui_MedAppMobile)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=samehmiissaoui_MedAppMobile&metric=bugs)](https://sonarcloud.io/summary/new_code?id=samehmiissaoui_MedAppMobile)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=samehmiissaoui_MedAppMobile&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=samehmiissaoui_MedAppMobile)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=samehmiissaoui_MedAppMobile&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=samehmiissaoui_MedAppMobile)
 
-1. Install dependencies
+## Tech Stack
 
-   ```bash
-   npm install
-   ```
+- **Framework**: React Native with Expo SDK 54
+- **Language**: JavaScript
+- **Navigation**: Expo Router
+- **Linting**: ESLint (strict rules) + Prettier
+- **Pre-commit hooks**: Husky + lint-staged
+- **CI/CD**: GitHub Actions
+- **Code Quality**: SonarCloud
 
-2. Start the app
+## Getting Started
 
-   ```bash
-   npx expo start
-   ```
+### Prerequisites
 
-In the output, you'll find options to open the app in a
+- Node.js 20.x or higher
+- npm 10.x or higher
+- Expo Go app on your phone (iOS/Android) for testing
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Installation
 
 ```bash
-npm run reset-project
+
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
