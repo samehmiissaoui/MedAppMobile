@@ -1,6 +1,6 @@
 # .github/workflows/ci.yml
 # Continuous Integration workflow
-# Runs lint and format checks on every push and pull request
+# Runs lint, format and code quality checks on every push and pull request
 
 name: CI
 
@@ -64,3 +64,23 @@ jobs:
 
       - name: Run Prettier check
         run: npm run format:check
+
+  # ─────────────────────────────────────────
+  # Job 3: SonarCloud code quality scan
+  # ─────────────────────────────────────────
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # SonarCloud needs full git history for accurate blame & new code detection
+          fetch-depth: 0
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
